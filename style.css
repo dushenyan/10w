@@ -6,6 +6,12 @@ body {
   background: #000;
 }
 
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
 canvas {
   position: absolute;
   width: 100%;
@@ -13,22 +19,11 @@ canvas {
 }
 
 .title {
-  width: 20%;
-  height: 30%;
-  /* 文字居中 */
-  text-align: center;
-  /* 字体大小 */
+  position: absolute;
   font-size: 30px;
-  /* 背景颜色 */
   background-color: transparent;
-  /* 文字颜色 */
   color: rgba(247, 110, 206, 0.829);
-  /* 左右居中 */
-  margin: auto;
-  /* 定位 */
-  position: relative;
-  /* 上边距 */
-  top: 40%;
-  /* 字体 */
-  font-family: "幼圆";
+  top: 46%;
+  right: 50%;
+  transform: translate(46%, 50%);
 }
