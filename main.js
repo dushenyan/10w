@@ -13,7 +13,13 @@ var settings = {
 
 var Title =(function(){
   var windowLocation = new URLSearchParams(window.location.search)
-  var name = windowLocation.get('name')
+  var key =  windowLocation.get('name')
+  var name = ''
+  if(Number(key) === 1){
+    name = "周朝微"
+  } else if (key === '曹晓婷'){
+    name = "曹晓婷"
+  }
   document.querySelector('.title').innerHTML = name
 })()
 
