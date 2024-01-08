@@ -15,8 +15,8 @@ var Title =(function(){
   var windowLocation = new URLSearchParams(window.location.search)
   var key =  windowLocation.get('name')
   var name = ''
-  if(Number(key) === 1){
-    name = "周朝微"
+  if (key === '王珺君'){
+    name = "王珺君"
   } else if (key === '曹晓婷'){
     name = "曹晓婷"
   }
