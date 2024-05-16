@@ -11,15 +11,10 @@ var settings = {
 
   (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
 
+  console.log(encodeURI('李亚燕'))
 var Title =(function(){
   var windowLocation = new URLSearchParams(window.location.search)
-  var key =  windowLocation.get('name')
-  var name = ''
-  if (key === '王珺君'){
-    name = "王珺君"
-  } else if (key === '曹晓婷'){
-    name = "曹晓婷"
-  }
+  name = decodeURI(windowLocation.get('name'))
   document.querySelector('.title').innerHTML = name
 })()
 
