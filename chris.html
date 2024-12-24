@@ -68,25 +68,12 @@
     a:visited {
       color: red;
     }
-     #header {
-      /* position: absolute; */
-      text-align: center;
-      color: #C89568;
-      font-family: Times New Roman;
-      font-size: 35px;
-      min-width: 400px;
-      max-height: 100vh;
-    }
 
     .header-item {
-      opacity: 0;
-      transition: all .5s ease-in-out;
+       text-align: center;
+      color: #C89568;
+      font-family: Times New Roman;
       line-height: 1.5;
-      margin: 0;
-    }
-
-    .header-item.show {
-      opacity: 1;
     }
   </style>
 </head>
@@ -184,10 +171,10 @@
       <circle class="sparkle" fill="url(#dotGrad)" cx="0" cy="0" r="50" />
     </g>
     <foreignObject id="endMessage" x="0" y="550" width="800" height="250">
-      <div class="endMessage">
+      <div class="header-item endMessage">
         亚宝 圣诞快乐
       </div>
-      <div class="endMessage">
+      <div class="header-item endMessage">
         健健康康，平安喜乐
       </div>
     </foreignObject>
