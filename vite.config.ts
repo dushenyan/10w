@@ -7,14 +7,14 @@ import fs from 'fs'
 function getPageEntries() {
   const pagesDir = resolve(__dirname, 'pages')
   const entries = {}
-  
+
   function scanDirectory(dir, basePath = '') {
     const items = fs.readdirSync(dir)
-    
+
     items.forEach(item => {
       const fullPath = resolve(dir, item)
       const stat = fs.statSync(fullPath)
-      
+
       if (stat.isDirectory()) {
         scanDirectory(fullPath, basePath ? `${basePath}/${item}` : item)
       } else if (item === 'index.html') {
@@ -25,25 +25,29 @@ function getPageEntries() {
       }
     })
   }
-  
+
   scanDirectory(pagesDir)
   return entries
 }
 
-export default defineConfig({
-  base: './',
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: getPageEntries(),
-      output: {
-        entryFileNames: '[name]-[hash].js',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name]-[hash].[ext]'
-      }
+export default defineConfig(({ mode }) => {
+  const isDev = mode === 'development'
+  const base = isDev ? '/' : '/10w/'
+  return {
+    base: base,
+    build: {
+      outDir: 'dist',
+      rollupOptions: {
+        input: getPageEntries(),
+        output: {
+          entryFileNames: '[name]-[hash].js',
+          chunkFileNames: '[name]-[hash].js',
+          assetFileNames: '[name]-[hash].[ext]'
+        }
+      },
     },
-  },
-  server: {
-    open: '/pages/home/index.html' // 默认打开首页
+    server: {
+      open: '/pages/home/index.html' // 默认打开首页
+    }
   }
 })
