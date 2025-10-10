@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = button.closest('.card');
       // 获取二维码容器
       const qrContainer = card.querySelector('.qr-container');
-      
       // 生成二维码
       generateQRCode(url, qrContainer);
       

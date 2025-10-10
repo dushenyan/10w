@@ -15,12 +15,15 @@ importers:
         specifier: ^1.5.4
         version: 1.5.4
     devDependencies:
+      '@types/node':
+        specifier: ^24.7.0
+        version: 24.7.0
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
       vite:
         specifier: npm:rolldown-vite@7.1.14
-        version: rolldown-vite@7.1.14
+        version: rolldown-vite@7.1.14(@types/node@24.7.0)
 
 packages:
 
@@ -135,6 +138,9 @@ packages:
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
+
+  '@types/node@24.7.0':
+    resolution: {integrity: sha512-IbKooQVqUBrlzWTi79E8Fw78l8k1RNtlDDNWsFZs7XonuQSJ8oNYfEeclhprUldXISRMLzBpILuKgPlIxm+/Yw==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -400,6 +406,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  undici-types@7.14.0:
+    resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
+
   which-module@2.0.1:
     resolution: {integrity: sha512-iBdZ57RDvnOR9AGBhML2vFZf7h8vmBjhoaZqODJBFWHVtKkDmKuHai3cx5PgVMrX5YDNp27AofYbAwctSS+vhQ==}
 
@@ -497,6 +506,10 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@types/node@24.7.0':
+    dependencies:
+      undici-types: 7.14.0
 
   ansi-regex@5.0.1: {}
 
@@ -633,7 +646,7 @@ snapshots:
 
   require-main-filename@2.0.0: {}
 
-  rolldown-vite@7.1.14:
+  rolldown-vite@7.1.14(@types/node@24.7.0):
     dependencies:
       '@oxc-project/runtime': 0.92.0
       fdir: 6.5.0(picomatch@4.0.3)
@@ -643,6 +656,7 @@ snapshots:
       rolldown: 1.0.0-beta.41
       tinyglobby: 0.2.15
     optionalDependencies:
+      '@types/node': 24.7.0
       fsevents: 2.3.3
 
   rolldown@1.0.0-beta.41:
@@ -689,6 +703,8 @@ snapshots:
     optional: true
 
   typescript@5.9.3: {}
+
+  undici-types@7.14.0: {}
 
   which-module@2.0.1: {}
 
