@@ -54,11 +54,16 @@ jobs:
       - name: Build project
         run: pnpm build
       
-      # 步骤6：设置GitHub Pages环境
+      # 步骤6：将主页文件复制到根目录
+      - name: Copy home page to root
+        run: |
+          cp dist/pages/home/index.html dist/index.html
+          
+      # 步骤7：设置GitHub Pages环境
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
-      # 步骤7：打印项目信息
+      # 步骤8：打印项目信息
       - name: Print Project Information
         run: |
           echo "======================"
@@ -68,7 +73,7 @@ jobs:
           echo "仓库地址: https://github.com/${{ github.repository }}"
           echo "======================="
       
-      # 步骤8：上传构建产物
+      # 步骤9：上传构建产物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -95,5 +100,5 @@ jobs:
           echo "======================"
           echo "部署完成！"
           echo "项目 10w 现已上线: ${{ steps.deployment.outputs.page_url }}"
-          echo "感谢使用 GitHub Pages 部署服务！"
+          echo "请访问上述链接查看您的网站"
           echo "======================"
