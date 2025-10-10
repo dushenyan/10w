@@ -1,0 +1,99 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - 动画特效展示</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="container">
+                <h1>动画特效展示</h1>
+            </div>
+        </header>
+        
+        <main>
+            <div class="container">
+                <div class="hero">
+                    <h2>欢迎来到动画特效展示</h2>
+                    <p>这里展示了一些有趣的动画和视觉特效，点击上方导航查看不同的效果。</p>
+                </div>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-icon">❤️</div>
+                            <h3>爱心点缀</h3>
+                            <p>浪漫的爱心粒子动画效果</p>
+                            <button class="qr-btn" data-url="/pages/love/index.html?name=杜审言">显示二维码</button>
+                        </div>
+                        <div class="card-back">
+                            <div class="qr-container" id="love-qr"></div>
+                            <p>扫描二维码访问</p>
+                            <button class="back-btn">返回</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-icon">🎄</div>
+                            <h3>圣诞树动画</h3>
+                            <p>精美的圣诞树绘制动画</p>
+                            <button class="qr-btn" data-url="/pages/chris/index.html">显示二维码</button>
+                        </div>
+                        <div class="card-back">
+                            <div class="qr-container" id="chris-qr"></div>
+                            <p>扫描二维码访问</p>
+                            <button class="back-btn">返回</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-icon">🎅</div>
+                            <h3>喜庆灯笼</h3>
+                            <p>精美的灯笼绘制动画</p>
+                            <button class="qr-btn" data-url="/pages/festive-lanterns/index.html">显示二维码</button>
+                        </div>
+                        <div class="card-back">
+                            <div class="qr-container" id="festive-lanterns-qr"></div>
+                            <p>扫描二维码访问</p>
+                            <button class="back-btn">返回</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-icon">🎨</div>
+                            <h3>Canvas动画板</h3>
+                            <p>精美的Canvas动画效果</p>
+                            <button class="qr-btn" data-url="/pages/drwa-borad/index.html">显示二维码</button>
+                        </div>
+                        <div class="card-back">
+                            <div class="qr-container" id="drwa-borad-qr"></div>
+                            <p>扫描二维码访问</p>
+                            <button class="back-btn">返回</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-icon">💬</div>
+                            <h3>文字雨动画</h3>
+                            <p>精美的文字雨动画效果</p>
+                            <button class="qr-btn" data-url="/pages/word-rain/index.html">显示二维码</button>
+                        </div>
+                        <div class="card-back">
+                            <div class="qr-container" id="word-rain-qr"></div>
+                            <p>扫描二维码访问</p>
+                            <button class="back-btn">返回</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>

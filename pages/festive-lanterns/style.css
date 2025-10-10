@@ -1,0 +1,121 @@
+@import url('../../styles/reset.css');
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.ltn-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ltn-line {
+  width: 5px;
+  height: 80px;
+  background-color: #dc8f03;
+}
+
+.ltn-body {
+  position: relative;
+  width: 300px;
+  height: 220px;
+  background-color: #f00;
+  border-radius: 120px;
+  box-shadow: 0 30px 115px -10px yellow;
+
+  /* 设置旋转点 */
+  transform-origin: top center;
+  animation: swing 3s infinite ease-in-out;
+}
+
+.ltn-body::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #dc8f03;
+  border-radius: 5px 5px 0 0;
+  width: 100px;
+  height: 20px;
+}
+
+.ltn-body::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100px;
+  height: 20px;
+  background-color: #dc8f03;
+  border-radius: 0 0 5px 5px;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(6deg);
+  }
+
+  25% {
+    transform: rotate(-6deg);
+  }
+
+  100% {
+    transform: rotate(6deg);
+  }
+}
+
+.ltn-circle {
+}
+
+.ltn-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  color: #dc8f03;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.ltn-tassel {
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #dc8f03;
+  width: 5px;
+  height: 75px;
+  animation: swing 3s infinite ease-in-out;
+}
+
+.ltn-tassel::before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 30px;
+  width: 30px;
+  background-color: #dc8f03;
+  border-radius: 50%;
+}
+
+.ltn-tassel::after {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #dc8f03;
+  width: 20px;
+  height: 100px;
+  border-radius: 0 0 5px 10px;
+}

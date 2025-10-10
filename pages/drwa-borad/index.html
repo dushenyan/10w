@@ -1,0 +1,58 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvas画板</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Canvas 画板</h1>
+    </header>
+
+    <main>
+      <div class="canvas-wrapper">
+        <canvas id="MyCanvas" width="1500" height="500"></canvas>
+      </div>
+
+      <div class="control-panel">
+        <div class="control-group">
+          <button id="clear_draw" class="btn btn-secondary">清空画板</button>
+        </div>
+
+        <div class="control-group">
+          <label for="sltWidth">线条粗细:</label>
+          <select id="sltWidth" class="control-select">
+            <option value="1">1</option>
+            <option value="3" selected>3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="9">9</option>
+            <option value="15">15</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sltColor">线条颜色:</label>
+          <select id="sltColor" class="control-select">
+            <option value="black" selected>黑色</option>
+            <option value="blue">蓝色</option>
+            <option value="red">红色</option>
+            <option value="green">绿色</option>
+            <option value="yellow">黄色</option>
+            <option value="gray">灰色</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <button id="save_image" class="btn btn-primary" onclick="saveImage()">
+            保存图像
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+<script src="./main.js"></script>
