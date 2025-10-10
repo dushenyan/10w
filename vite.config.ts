@@ -30,11 +30,9 @@ function getPageEntries() {
   return entries
 }
 
-export default defineConfig(({ mode }) => {
-  const isDev = mode === 'development'
-  const base = isDev ? '/' : '/10w/'
+export default defineConfig(() => {
   return {
-    base: base,
+    base: '/10w/',
     build: {
       outDir: 'dist',
       rollupOptions: {
@@ -47,7 +45,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      open: '/pages/home/index.html' // 默认打开首页
+      open: '/10w/pages/home/index.html' // 默认打开首页
     }
   }
 })
