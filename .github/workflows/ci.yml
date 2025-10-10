@@ -33,18 +33,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      # 步骤2：设置Node.js环境
+      # 步骤2：安装pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+      
+      # 步骤3：设置Node.js环境
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'pnpm'
-      
-      # 步骤3：安装pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10
       
       # 步骤4：安装项目依赖
       - name: Install dependencies
