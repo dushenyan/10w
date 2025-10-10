@@ -1,12 +1,14 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import fs from 'fs'
 
+// 自动扫描 pages 目录下的 HTML 文件
 function getPageEntries() {
   const pagesDir = resolve(__dirname, 'pages')
-  const entries: Record<string, string> = {}
+  const entries = {}
   
-  function scanDirectory(dir: string, basePath = '') {
+  function scanDirectory(dir, basePath = '') {
     const items = fs.readdirSync(dir)
     
     items.forEach(item => {
@@ -16,8 +18,10 @@ function getPageEntries() {
       if (stat.isDirectory()) {
         scanDirectory(fullPath, basePath ? `${basePath}/${item}` : item)
       } else if (item === 'index.html') {
-        const dirName = basePath || 'home'
-        entries[dirName] = fullPath
+        // 修改这里：使用页面名称作为入口名称，而不是路径
+        const relativePath = resolve(fullPath).replace(resolve(pagesDir) + '/', '')
+        const entryName = relativePath.replace('/index.html', '').replace(/\//g, '-')
+        entries[entryName || 'home'] = fullPath
       }
     })
   }
@@ -26,26 +30,18 @@ function getPageEntries() {
   return entries
 }
 
-export default defineConfig(({ mode }) => {
-  const isProduction = mode === 'production'
-  const base = process.env.VITE_BASE_URL || (isProduction ? './' : '/')
-  
-  return {
-    base,
-    build: {
-      outDir: 'dist',
-      rollupOptions: {
-        input: getPageEntries(),
-        output: {
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash].[ext]'
-        }
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: getPageEntries(),
+      output: {
+        entryFileNames: '[name]-[hash].js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name]-[hash].[ext]'
       }
     },
-    server: {
-      open: '/pages/home/index.html'
-    },
-    publicDir: 'public'
+  },
+  server: {
+    open: '/pages/home/index.html' // 默认打开首页
   }
 })
