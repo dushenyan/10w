@@ -31,7 +31,9 @@ function getPageEntries() {
 }
 
 export default defineConfig({
+  base: './',
   build: {
+    outDir: 'dist',
     rollupOptions: {
       input: getPageEntries(),
       output: {
