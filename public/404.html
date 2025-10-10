@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    const path = window.location.pathname.split('/').filter(Boolean);
+    const repoName = '<%= repoName %>'; // 构建时会被替换
+    
+    if (path[0] === repoName) path.shift();
+    
+    if (path.length > 0) {
+      // 尝试匹配多页面路径
+      const possiblePaths = [
+        `/${repoName}/pages/${path.join('/')}/index.html`,
+        `/${repoName}/pages/${path[0]}/index.html`
+      ];
+      
+      possiblePaths.forEach(p => {
+        fetch(p, { method: 'HEAD' })
+          .then(res => res.ok && (window.location.href = p))
+      });
+    }
+    window.location.href = `/${repoName}/pages/home/index.html`;
+  </script>
+</head>
+<body>
+  <h1>页面未找到</h1>
+  <p>正在跳转到首页...</p>
+</body>
+</html>
