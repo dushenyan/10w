@@ -1,7 +1,7 @@
 {
   "name": "10w",
   "private": true,
-  "description": "10w项目是一个多页面展示项目，包含了多个页面的展示效果，如爱心粒子动画、Canvas动画板、文字雨动画等, 提供点击跳转以及二维码扫描访问",
+  "description": "10w项目是一个多页面展示项目，包含了如爱心粒子动画、Canvas动画板、文字雨动画等页面, 提供点击跳转以及二维码扫描访问",
   "type": "module",
   "scripts": {
     "dev": "vite",
