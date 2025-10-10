@@ -99,9 +99,9 @@ pnpm preview
 
 ## 许可证
 
-本项目为开源项目，可用于学习和参考。
+本项目为开源项目，可用于学习和参考
 
 ## 贡献
 
-欢迎提交Issue和Pull Request来改进项目。
+欢迎提交Issue和Pull Request来改进项目
 </file>
