@@ -23,7 +23,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -114,7 +114,7 @@ main {
     text-align: center;
     transition: var(--transition);
     position: relative;
-    height: 300px;
+    height: 400px;
     perspective: 1000px;
 }
 
@@ -150,7 +150,6 @@ main {
 
 .card-icon {
     font-size: 3rem;
-    margin-bottom: 1rem;
 }
 
 .card h3 {
