@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豪华EZEX圣诞树</title>
+    <script src="https://unpkg.com/react@19/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@19/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/three@0.181.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/@react-three/fiber@9.4.2/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/@react-three/drei@10.7.7/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/@react-three/postprocessing@3.0.4/dist/index.umd.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        #root {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: white;
+            background-color: rgba(8, 76, 47, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            min-width: 200px;
+        }
+        
+        #video-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 150px;
+            z-index: 5;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .title {
+            font-family: Georgia, serif;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .control-item {
+            margin-bottom: 10px;
+        }
+        
+        .control-button {
+            background-color: #084c2f;
+            border: 1px solid #ffd700;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .control-button:hover {
+            background-color: #0a6038;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-active {
+            background-color: #4CAF50;
+        }
+        
+        .status-inactive {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <div class="controls">
+        <div class="title">豪华EZEX圣诞树</div>
+        <div class="control-item">
+            <div>
+                <span class="status-indicator status-inactive" id="state-indicator"></span>
+                状态: <span id="tree-state">散落中</span>
+            </div>
+        </div>
+        <div class="control-item">
+            <div>
+                <span class="status-indicator status-inactive" id="gesture-indicator"></span>
+                手势控制: <span id="gesture-status">未启用</span>
+            </div>
+        </div>
+        <div class="control-item">
+            <button id="toggle-tree" class="control-button">切换状态</button>
+        </div>
+        <div class="control-item">
+            <button id="toggle-camera" class="control-button">启动手势</button>
+        </div>
+    </div>
+    
+    <div id="video-container" style="display: none;">
+        <video id="video" autoplay muted playsinline></video>
+    </div>
+
+    <script src="simple.js" type="module"></script>
+</body>
+</html>
