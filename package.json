@@ -5,7 +5,7 @@
   "author": "dushenyan <dushenyan88@gmail.com>",
   "homepage": "https://dushenyan.github.io/10w/pages/home/index.html",
   "repository": "https://github.com/dushenyan/10w",
-  "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/vite.svg",
+  "iconUrl": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/vite.svg",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
