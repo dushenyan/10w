@@ -1,15 +1,26 @@
 {
   "name": "10w",
-  "private": true,
-  "description": "10w项目是一个多页面展示项目，包含了如爱心粒子动画、Canvas动画板、文字雨动画等页面, 提供点击跳转以及二维码扫描访问",
   "type": "module",
+  "description": "10w项目是一个多页面展示项目，包含了如爱心粒子动画、Canvas动画板、文字雨动画等页面, 提供点击跳转以及二维码扫描访问",
+  "author": "dushenyan <dushenyan88@gmail.com>",
+  "homepage": "https://dushenyan.github.io/10w/pages/home/index.html",
+  "repository": "https://github.com/dushenyan/10w",
+  "icon": "https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/vite.svg",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite build && vite preview"
+    "preview": "vite build && vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:ui": "npx @eslint/config-inspector"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^6.6.1",
     "@types/node": "^24.7.0",
+    "eslint": "^9.39.1",
     "three": "^0.181.2",
     "typescript": "~5.9.3",
     "vite": "npm:rolldown-vite@7.1.14"
@@ -18,8 +29,5 @@
     "overrides": {
       "vite": "npm:rolldown-vite@7.1.14"
     }
-  },
-  "dependencies": {
-    "qrcode": "^1.5.4"
   }
 }

@@ -5,59 +5,59 @@ name: 部署Vite多页面应用到GitHub Pages
 on:
   # 当推送到main分支时运行
   push:
-    branches: ["main"]
+    branches: [main]
 
   # 允许从Actions选项卡手动运行此工作流程
   workflow_dispatch:
 
 # 设置GITHUB_TOKEN的权限，允许部署到GitHub Pages
 permissions:
-  contents: read   # 允许读取仓库内容
-  pages: write     # 允许写入GitHub Pages
-  id-token: write  # 允许写入ID令牌
+  contents: read # 允许读取仓库内容
+  pages: write # 允许写入GitHub Pages
+  id-token: write # 允许写入ID令牌
 
 # 并发控制设置：只允许一个部署同时进行
 # 跳过排队在正在进行的运行和最新排队的运行之间的运行
 # 但不要取消正在进行的运行，因为我们希望这些生产部署完成
 concurrency:
-  group: "pages"           # 并发组名称
+  group: pages # 并发组名称
   cancel-in-progress: false # 是否取消正在进行的运行
 
 # 定义工作流程中的任务
 jobs:
   # 构建任务
   build:
-    runs-on: ubuntu-latest  # 运行环境：最新的Ubuntu
+    runs-on: ubuntu-latest # 运行环境：最新的Ubuntu
     steps:
       # 步骤1：检出代码
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       # 步骤2：安装pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 10
-      
+
       # 步骤3：设置Node.js环境
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
-      
+          cache: pnpm
+
       # 步骤4：安装项目依赖
       - name: Install dependencies
         run: pnpm install
-      
+
       # 步骤5：构建项目
       - name: Build project
         run: pnpm build
-      
+
       # 步骤6：设置GitHub Pages环境
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
       # 步骤7：打印项目信息
       - name: Print Project Information
         run: |
@@ -67,7 +67,7 @@ jobs:
           echo "网站地址: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
           echo "仓库地址: https://github.com/${{ github.repository }}"
           echo "======================="
-      
+
       # 步骤8：上传构建产物
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -77,18 +77,18 @@ jobs:
   # 部署任务
   deploy:
     environment:
-      name: github-pages     # 环境名称
-      url: ${{ steps.deployment.outputs.page_url }}  # 部署后的页面URL
-    runs-on: ubuntu-latest   # 运行环境：最新的Ubuntu
-    needs: build             # 此任务依赖于build任务完成
-    
+      name: github-pages # 环境名称
+      url: ${{ steps.deployment.outputs.page_url }} # 部署后的页面URL
+    runs-on: ubuntu-latest # 运行环境：最新的Ubuntu
+    needs: build # 此任务依赖于build任务完成
+
     # 部署步骤
     steps:
       # 步骤1：部署到GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      
+
       # 步骤2：打印部署成功信息
       - name: Print Deployment Success Message
         run: |
